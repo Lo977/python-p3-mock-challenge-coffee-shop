@@ -11,7 +11,7 @@ class Coffee:
 
     @name.setter
     def name(self, name: str):
-        if not hasattr(self, "_name"):  # Ensure name can only be set once
+        if not hasattr(self, "_name") and len(name) >= 3:  # Ensure name can only be set once
             self._name = name
 
     def orders(self) -> list:
@@ -80,7 +80,7 @@ class Order:
 
     @price.setter
     def price(self, price: float):
-        if isinstance(price, float) and not hasattr(self,"_price") and price >= 0:
+        if isinstance(price, float) and not hasattr(self,"_price") and 1 <= price <= 10:
             self._price = price
         # else:
         #     raise ValueError("Price must be a positive float.")
